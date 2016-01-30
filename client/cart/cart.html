@@ -1,8 +1,13 @@
 <template name="cart">
     <div class="page-header">
         <h1>
-            <small>My Cart</small>
+            <small>My Estimate</small>
         </h1>
+    </div>
+    <div class="container">
+      <label for="cartName">Estimate name:</label>
+      <input class="cartName" type="text">
+      <a class="btn btn-success btn-mini createCart" href="#">Save Estimate</a>
     </div>
     <table class="span4 table table-striped table-bordered table-hover">
         <thead>
@@ -26,15 +31,15 @@
         {{/each}}
         <tr>
             <td class="totalcol" colspan="2">SubTotal:</td>
-            <td colspan="2">{{currency cartitems.subtotal}}</td>
+            <td class="totalcolval" colspan="2">{{currency cartitems.subtotal}}</td>
         </tr>
         <tr>
-            <td class="totalcol" colspan="2">Tax 6%:</td>
-            <td colspan="2">{{currency cartitems.tax}}</td>
+            <td class="totalcol" colspan="2">Tax 6.75%:</td>
+            <td class="totalcolval" colspan="2">{{currency cartitems.tax}}</td>
         </tr>
         <tr>
             <td class="totalcol" colspan="2">Total:</td>
-            <td colspan="2">{{currency cartitems.total}}</td>
+            <td class="totalcolval" colspan="2">{{currency cartitems.total}}</td>
         </tr>
         </tbody>
     </table>
