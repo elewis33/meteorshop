@@ -1,4 +1,7 @@
-meteorshop
+estimator2
 ==========
 
-Meteor Shopping Cart
+A simple cost estimator based on the mcknightg/meteorshop repo.
+
+Meteorshop was a solid foundation for learning the basic design/construction of a meteor app. It lacked any UI to add/update/delete from the products, categories, subcategories, etc.
+
