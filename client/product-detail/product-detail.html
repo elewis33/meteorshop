@@ -1,0 +1,57 @@
+<!-- insert form -->
+<template name="productModalNew">
+  <div class="modal fade" role="dialog">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">New Product</h4>
+        </div>
+        <div class="modal-body">
+            {{#autoForm id="afInsertProduct" type="method" meteormethod="newProduct" collection="Products"}}
+                <fieldset>
+                    {{> afQuickField name='name' label=false placeholder="Product name"}}
+                    {{> afQuickField name='desc' rows=4 label=false placeholder="Description"}}
+                    {{> afQuickField name='price' label=false placeholder="Unit price"}}
+                    {{> afQuickField name='thumb' label=false placeholder="Filename of thumbnail image"}}
+                    {{> afQuickField name='catName' label=false type="select2" options=optCategories firstOption="(Select a Category)"}}
+                </fieldset>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="save">Add Product</button>
+                <button type="reset" class="btn btn-default">Reset Form</button>
+              </div>
+            {{/autoForm}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- update form-->
+<template name="productModalEdit">
+  <div class="modal fade" role="dialog">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Edit Product</h4>
+        </div>
+        <div class="modal-body">
+            {{#autoForm id="afUpdateProduct" doc=selectedProductDoc type="method-update" singleMethodArgument=false meteormethod="editProduct" collection="Products"}}
+              <fieldset>
+                  {{> afQuickField name='name' label=false placeholder="Product name"}}
+                  {{> afQuickField name='desc' rows=4 label=false placeholder="Description"}}
+                  {{> afQuickField name='price' label=false placeholder="Unit price"}}
+                  {{> afQuickField name='thumb' label=false placeholder="Filename of thumbnail image"}}
+                  {{> afQuickField name='catName' label=false type="select2" options=optCategories firstOption="Select a Category"}}
+              </fieldset>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="save">Save Product</button>
+                <button type="reset" class="btn btn-default">Reset Form</button>
+              </div>
+            {{/autoForm}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
