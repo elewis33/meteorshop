@@ -1,0 +1,8 @@
+<template name="cartItems">
+  <h1>Carts</h1>
+  <ul>
+      {{#each cart}}
+        <li>{{name}} -- {{cartItem.name}} {{cartItem.qty}}</li>
+      {{/each}}
+  </ul>
+</template>

@@ -1,0 +1,15 @@
+.categories-nav-header {
+    font-size: 14px;
+}
+
+ul.nav.nav-list li a {
+    margin-left: 2px;
+}
+
+.nav-list li a {
+    padding: 3px 3px;
+}
+
+.categories-nav-header {
+    cursor: pointer;
+}

@@ -1,8 +1,27 @@
-
 td.totalcol {
     text-align: right;
 }
 
 td.totalcolval {
+    text-align: right;
+}
+
+.modal-sm {
+    width: 300px;
+}
+
+.carts {
+    margin-left: 25px;
+}
+
+.noCartItems {
+    margin-left: 25px;
+}
+
+.noCartItems table {
+    margin-left: 2px;
+}
+
+td.price {
     text-align: right;
 }

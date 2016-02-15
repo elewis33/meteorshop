@@ -3,18 +3,27 @@
     padding:0;
 }
 .well{
-        margin-top:10px;
-        margin-right: 5px;
-        margin-left:5px;
-        height: 200px;
+    height: 260px;
+    width: 180px;
+    margin-top:10px;
+    margin-right: 5px;
+    margin-left:5px;
+
 }
+
+.well ul li img {
+    height: 150px;
+    width: 150px;
+}
+
 .prodlist{
-    height:600px;
+    height:800px;
+    width: 470px;
     overflow-x:hidden;
     overflow-y:auto;
 }
 
 .thumbnail{
-    max-width:90px;
-    max-height: 120px;
+    max-width: 150px;
+    max-height: 150px;
 }
