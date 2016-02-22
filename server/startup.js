@@ -52,11 +52,11 @@ ConsoleMe.enabled=true;
 Meteor.methods({
   //delete when live - removes all items from the collections
   'removeAll':function(){
-      // Products.remove({});
-      Categories.remove({});
-      SubCategories.remove({});
-      CartItems.remove({});
-      Cart.remove({});
+  //    Products.remove({});
+  //    Categories.remove({});
+  //    SubCategories.remove({});
+  //    CartItems.remove({});
+  //    Cart.remove({});
   },
 
   'addToCart':function(qty,product,session){
@@ -111,6 +111,8 @@ Meteor.methods({
 
 });
 
+//"Implementing an instant search feature with Meteor" Arunoda
+
 // publish the database collections
 // these might need to be refined after the app is tested a bit
 Meteor.publish('products', function(){
@@ -142,19 +144,19 @@ Meteor.publish('customer', function(){
 });
 
 // TODO see if we can get this returning a composite/joined query
-Meteor.publishComposite('cartItems', function(cart_id) {
+Meteor.publishComposite('cartsComposite', function() {
   return {
-    find: function () {
-      return Cart.find ({_id: cart_id});
-    },
-    children: [
-      {
-        find: function (cart) {
-          return CartItems.find ({cart_id: cart._id});
+      find: function () {
+        return Cart.find ();
+      },
+      children: [
+        {
+          find: function (cart) {
+            return CartItems.find ({cart_id: cart._id});
+          }
         }
-      }
-    ]
-  }
+      ]
+    }
 });
 
 

@@ -27,11 +27,6 @@ Template.cart.events({
       cart = $(e.target).closest('.cartlink');
       cartId = cart.attr('data-id');
       ModalHelper.openCartModalFor(cartId);
-    },
-
-    'click #carttotal':function(e, tmpl){
-      var total = tmpl.find('#carttotalval').value;
-      console.log('cart total is ' + total);
     }
 
 });
@@ -71,14 +66,20 @@ Template.cartModalNew.events({
 });
 
 Template.cartModalNew.helpers({
-  'getSession':function(){
+  'getSession': function () {
     return Meteor.default_connection._lastSessionId;
+  },
+
+  'getCartTotal': function() {
+    var cartTotal = Number(Session.get('cartTotal')).toFixed(2);
+    return cartTotal;
   }
 });
 
-Template.cartModalNew.rendered = function() {
-  var cartTotal = Number(Session.get('cartTotal')).toFixed(2)
-  $('input[name="totalCost"]').val(cartTotal);
+Template.cartModalNew.render = function() {
+    var cartTotal = Number(Session.get('cartTotal')).toFixed(2);
+   // $('input[name="totalCost"]').val(cartTotal);
+    // return cartTotal;
 };
 
 Template.cartModalEdit.events({

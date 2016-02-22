@@ -48,4 +48,15 @@ Template.categoryModalNew.rendered = function() {
   $("#cat").val(selectedVal).change();
 };
 
+// these are really handy to let you know when templates are coming and going
+Template.categories.onCreated(function(){
+  console.log("The 'categories' template was just created.");
+});
 
+Template.categories.onRendered(function(){
+  console.log("The 'categories' template was just rendered.");
+});
+
+Template.categories.onDestroyed(function(){
+  console.log("The 'categories' template was just destroyed.");
+});

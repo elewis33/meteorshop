@@ -1,23 +1,16 @@
 Session.setDefault('category', null);
 
-Router.configure({
-  layoutTemplate:'layout',
-  yieldTemplates:{
-    'products':{to:'products'},
-    'cart':{to:'cart'},
-    'categories':{to:'categories'}
+FlowRouter.route('/estimates', {
+  name: 'estimates',
+  action: function() {
+    BlazeLayout.render("layout", {left_sidebar: "categories", main_body: "cart_items_composite"});
   }
 });
 
-Router.map(function(){
-  this.route('/','layout');
-  this.route('products', {
-    layoutTemplate:'layout',
-    path:'/:name',
-    data: function() {
-      console.log(this.params.name);
-      Session.set('category',this.params.name);
-    },
-    template:'layout'
-  });
+FlowRouter.route('/category/:name', {
+  action: function(params) {
+    console.log(params.name);
+    Session.set('category', params.name);
+    BlazeLayout.render("layout", {left_sidebar: "categories", main_body: "products", cart:"cart"});
+  }
 });

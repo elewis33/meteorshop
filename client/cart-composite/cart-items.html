@@ -1,8 +1,24 @@
-<template name="cartItems">
-  <h1>Carts</h1>
+<template name="cart_items_composite">
+  <div class="page-header">
+    <h1>
+      <small>All Estimates</small>
+    </h1>
+  </div>
+
+  <div class="container">
   <ul>
-      {{#each cart}}
-        <li>{{name}} -- {{cartItem.name}} {{cartItem.qty}}</li>
+    {{#if currentUser}}
+      {{#each carts}}
+
+        <!--<li>{{cartName}} - {{totalCost}} {{cartItems.name}} {{cartItems.qty}}</li> -->
+        <li>{{cartName}} - {{totalCost}} </li>
+          <ul>
+            {{#each cartItems}}
+            <li>{{cartItems._id}} - {{cartItems.qty}} - {{cartItems.product}}</li>
+            {{/each}}
+          </ul>
       {{/each}}
+    {{/if}}
   </ul>
+  </div>
 </template>

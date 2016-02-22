@@ -1,14 +1,26 @@
-Meteor.subscribe('cartItems');
+Meteor.subscribe('cart');
+Meteor.subscribe('cartitems');
+// Meteor.subscribe('cartsComposite');
 
-
-Template.cartItems.helpers({
-  'carts': function(cartId) {
-    return Cart.find({_id:cartId});
+//TODO - get the helper for the composite view working
+Template.cart_items_composite.helpers({
+  'carts': function(user) {
+    return Cart.find({owner: Meteor.userId()}).fetch();
   },
 
-  'cartItem': function() {
-    // We use this helper inside the {{#each posts}} loop, so the context
-    // will be a post object. Thus, we can use this.authorId.
-    return CartItems.find({cart_id:this._id});
+  'cartItems': function() {
+    return CartItems.find({user:Meteor.userId(), cart_id:this._id});
   }
-})
+});
+
+Template.cart_items_composite.onCreated(function(){
+  console.log("The 'cart_items_composite' template was just created.");
+});
+
+Template.cart_items_composite.onRendered(function(){
+  console.log("The 'cart_items_composite' template was just rendered.");
+});
+
+Template.cart_items_composite.onDestroyed(function(){
+  console.log("The 'cart_items_composite' template was just destroyed.");
+});
